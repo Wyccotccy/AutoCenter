@@ -70,10 +70,10 @@ class CameraCaptureActivity : AppCompatActivity() {
         cameraProviderFuture.addListener({
             cameraProvider = cameraProviderFuture.get()
 
-            // 预览
+            // 预览 — PreviewView 本身实现了 SurfaceProvider
             val preview = Preview.Builder()
                 .build()
-                .also { it.surfaceProvider = binding.previewView.surfaceProvider }
+                .also { it.setSurfaceProvider(binding.previewView.surfaceProvider) }
 
             // 图像分析 - 使用默认 YUV_420_888 格式，转为 RGBA 再匹配
             val analysis = ImageAnalysis.Builder()
