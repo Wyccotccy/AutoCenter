@@ -18,6 +18,13 @@ class AutoCenterApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        // 全局未捕获异常处理器（防止 Java UnsatisfiedLinkError 直接崩溃）
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            Log.e(TAG, "Uncaught exception in thread ${thread.name}: ${throwable.message}", throwable)
+            // 不重新抛出，让系统默认处理器处理
+        }
+
         initOpenCV()
     }
 

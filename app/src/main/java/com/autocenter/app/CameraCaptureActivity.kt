@@ -103,7 +103,7 @@ class CameraCaptureActivity : AppCompatActivity() {
                 cameraProvider?.bindToLifecycle(
                     this, cameraSelector, preview, analysis
                 )
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 e.printStackTrace()
                 runOnUiThread {
                     Toast.makeText(this, "启动摄像头失败: ${e.message}", Toast.LENGTH_SHORT).show()

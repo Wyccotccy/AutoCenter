@@ -102,7 +102,7 @@ class ScreenCaptureService : Service() {
             // 尝试手动初始化
             try {
                 org.opencv.android.OpenCVLoader.initDebug()
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 Log.e(TAG, "Manual OpenCV init failed: ${e.message}")
             }
         }
@@ -140,7 +140,7 @@ class ScreenCaptureService : Service() {
         try {
             val notification = buildNotification()
             startForeground(NOTIFICATION_ID, notification)
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             // Android 12+ 可能抛出 ForegroundServiceStartNotAllowedException
             e.printStackTrace()
             stopSelf()
@@ -282,7 +282,7 @@ class ScreenCaptureService : Service() {
 
             bmp.recycle()
 
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             e.printStackTrace()
         }
     }

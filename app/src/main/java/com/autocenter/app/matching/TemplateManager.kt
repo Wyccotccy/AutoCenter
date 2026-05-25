@@ -149,7 +149,7 @@ class TemplateManager(private val context: Context) {
                     detector.detectAndCompute(gray, Mat(), kp, desc)
                 }
             }
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             e.printStackTrace()
             kp.release()
             desc.release()

@@ -40,7 +40,7 @@ class MatcherEngine(private val settings: AppSettings) {
         try {
             Utils.bitmapToMat(frameBmp, frameMat)
             Imgproc.cvtColor(frameMat, gray, Imgproc.COLOR_RGBA2GRAY)
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             frameMat.release()
             gray.release()
             return emptyList()
@@ -74,7 +74,7 @@ class MatcherEngine(private val settings: AppSettings) {
                     detector.detectAndCompute(gray, Mat(), frameKp, frameDesc)
                 }
             }
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             e.printStackTrace()
             gray.release()
             frameKp.release()
@@ -152,7 +152,7 @@ class MatcherEngine(private val settings: AppSettings) {
                         )
                     )
                 }
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 e.printStackTrace()
             }
         }
