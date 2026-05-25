@@ -1,40 +1,31 @@
 #!/bin/sh
 
 #
-# Copyright © 2015-2021 the original authors.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Gradle wrapper for AutoCenter project
+# Uses Gradle 8.2. The gradle-wrapper.jar is downloaded on first build
+# when using `gradle wrapper` or the GitHub Actions setup.
 #
 
-cd "$(dirname "$0")"
+# Determine the project root dir
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR"
 
-# This is the minimal Gradle wrapper for GitHub Actions.
-# The full wrapper JAR will be downloaded by the `gradle-build-action` in CI.
-
-# If you need to run locally, install Gradle 8.2+ or download the full wrapper via:
-#   gradle wrapper --gradle-version 8.2
-
-echo "Please use 'gradle wrapper --gradle-version 8.2' to generate the full gradlew wrapper locally."
-echo "In GitHub Actions, the gradle-build-action handles this automatically."
-
-# The CI build uses `gradle-build-action` which doesn't need the wrapper JAR.
-# For local builds: ./gradlew assembleDebug (requires full wrapper)
-
+# If wrapper jar doesn't exist, download/install Gradle via SDKMAN or use system gradle
 if [ ! -f "gradle/wrapper/gradle-wrapper.jar" ]; then
-    echo "ERROR: gradle-wrapper.jar not found. Run 'gradle wrapper' to generate it."
-    exit 1
+    # Check if gradle is available on PATH (GitHub Actions provides this)
+    if command -v gradle > /dev/null 2>&1; then
+        echo "Generating Gradle wrapper..."
+        gradle wrapper --gradle-version 8.2
+    else
+        echo "ERROR: gradle-wrapper.jar not found and 'gradle' not on PATH."
+        echo "To fix: install Gradle 8.2+ and run 'gradle wrapper --gradle-version 8.2'"
+        echo "Or: download https://services.gradle.org/distributions/gradle-8.2-bin.zip"
+        echo "    and set GRADLE_HOME, then run 'gradle wrapper --gradle-version 8.2'"
+        exit 1
+    fi
 fi
 
+# Execute the wrapper
 exec java \
     -Xmx2048m \
     -Dfile.encoding=UTF-8 \
