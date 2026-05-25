@@ -27,21 +27,19 @@ jobs:
       - name: Build Debug APK
         run: ./gradlew assembleDebug
 
-      - name: Build Release APK
-        run: ./gradlew assembleRelease
-
       - name: Upload APK Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: AutoCenter-APK
-          path: |
-            app/build/outputs/apk/debug/*.apk
-            app/build/outputs/apk/release/*.apk
+          name: AutoCenter-Debug-APK
+          path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: warn
 
-      - name: Upload mapping
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
+
+      - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
-          name: mapping
-          path: app/build/outputs/mapping/release/mapping.txt
-          if-no-files-found: ignore
+          name: AutoCenter-Release-APK
+          path: app/build/outputs/apk/release/*.apk
+          if-no-files-found: warn
