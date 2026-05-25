@@ -68,6 +68,9 @@ class ScreenCaptureService : Service() {
     companion object {
         const val EXTRA_RESULT_DATA = "result_data"
         const val EXTRA_RESULT_CODE = "result_code"
+        private const val NOTIFICATION_ID = 1001
+        private const val CHANNEL_ID = "screen_capture"
+        private const val TAG = "ScreenCaptureService"
 
         /** 启动服务 */
         fun start(ctx: Context, resultCode: Int, data: Intent) {
@@ -168,7 +171,7 @@ class ScreenCaptureService : Service() {
         captureThread = null
         captureHandler = null
 
-        matcherEngine.releaseCurrentFrame()
+        // matcherEngine handles per-frame cleanup internally
     }
 
     /** 帧捕获循环 */
@@ -390,10 +393,4 @@ class ScreenCaptureService : Service() {
     }
 
     // endregion
-
-    companion object {
-        private const val NOTIFICATION_ID = 1001
-        private const val CHANNEL_ID = "screen_capture"
-        private const val TAG = "ScreenCaptureService"
-    }
 }
