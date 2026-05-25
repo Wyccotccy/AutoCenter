@@ -69,6 +69,16 @@
             android:layout_marginBottom="@dimen/margin_small"
             app:cornerRadius="8dp" />
 
+        <!-- 摄像头识别 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCameraMode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="摄像头识别模式"
+            android:layout_marginBottom="@dimen/margin_medium"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            app:cornerRadius="8dp" />
+
         <!-- 分隔线 -->
         <View
             android:layout_width="match_parent"

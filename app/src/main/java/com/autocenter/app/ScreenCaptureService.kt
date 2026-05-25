@@ -111,15 +111,28 @@ class ScreenCaptureService : Service() {
         if (intent == null) return START_NOT_STICKY
 
         val resultCode = intent.getIntExtra(EXTRA_RESULT_CODE, -1)
-        val data = intent.getParcelableExtra(EXTRA_RESULT_DATA, Intent::class.java)
+        // 兼容 API 26-33: getParcelableExtra(String, Class) 需要 API 33+
+        val data = if (Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra(EXTRA_RESULT_DATA, Intent::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra<Intent>(EXTRA_RESULT_DATA)
+        }
 
         if (resultCode == -1 || data == null) {
             stopSelf()
             return START_NOT_STICKY
         }
 
-        val notification = buildNotification()
-        startForeground(NOTIFICATION_ID, notification)
+        try {
+            val notification = buildNotification()
+            startForeground(NOTIFICATION_ID, notification)
+        } catch (e: Exception) {
+            // Android 12+ 可能抛出 ForegroundServiceStartNotAllowedException
+            e.printStackTrace()
+            stopSelf()
+            return START_NOT_STICKY
+        }
 
         startCapture(resultCode, data)
         return START_STICKY

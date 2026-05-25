@@ -66,16 +66,29 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val cn = ComponentName(ctx, com.autocenter.app.MyAccessibilityService::class.java)
         val flat = cn.flattenToString()
         return try {
-            Settings.Secure.getInt(
-                ctx.contentResolver,
-                Settings.Secure.ACCESSIBILITY_ENABLED
-            ) == 1 &&
-            Settings.Secure.getString(
+            if (Settings.Secure.getInt(
+                    ctx.contentResolver,
+                    Settings.Secure.ACCESSIBILITY_ENABLED
+                ) != 1) return false
+            val services = Settings.Secure.getString(
                 ctx.contentResolver,
                 Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
-            )?.contains(flat) == true
+            ) ?: return false
+            // 用 split+any 替代 contains，避免部分匹配问题
+            services.split(":").any { it.trim() == flat || it.trim() == cn.className }
         } catch (e: Exception) {
             false
+        }
+    }
+
+    /** 获取基础的状态文字 */
+    fun evaluateStatus(): String {
+        val ctx = getApplication<Application>()
+        return when {
+            !isAccessibilityServiceEnabled() -> "未开启无障碍服务"
+            !android.provider.Settings.canDrawOverlays(ctx) -> "未授权悬浮窗权限"
+            isCapturing.value != true -> "请授权屏幕捕获"
+            else -> "检测中…"
         }
     }
 

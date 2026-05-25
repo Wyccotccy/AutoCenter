@@ -114,6 +114,11 @@ class MainActivity : AppCompatActivity() {
             toggleTestMode()
         }
 
+        // 摄像头识别模式
+        binding.btnCameraMode.setOnClickListener {
+            startActivity(Intent(this, CameraCaptureActivity::class.java))
+        }
+
         // 显示瞄准框
         binding.switchReticle.setOnCheckedChangeListener { _, isChecked ->
             viewModel.setReticle(isChecked)
@@ -170,9 +175,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateAccessibilityStatus() {
-        if (!viewModel.isAccessibilityServiceEnabled()) {
-            viewModel.updateStatus("未开启无障碍服务")
-        }
+        viewModel.updateStatus(viewModel.evaluateStatus())
     }
 
     // region 屏幕捕获
