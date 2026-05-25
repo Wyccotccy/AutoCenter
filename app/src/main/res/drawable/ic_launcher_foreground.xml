@@ -4,29 +4,22 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- Crosshair icon for AutoCenter app -->
+    <!-- Crosshair: vertical line -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,24v8" />
+        android:pathData="M52,24h4v60h-4z" />
+    <!-- Crosshair: horizontal line -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,76v8" />
+        android:pathData="M24,52h60v4h-60z" />
+    <!-- Outer circle ring (stroke only) -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M24,54h8" />
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M76,54h8" />
-    <circle
-        android:cx="54"
-        android:cy="54"
-        android:r="12"
+        android:fillColor="#00000000"
         android:strokeWidth="3"
         android:strokeColor="#FFFFFF"
-        android:fillColor="#00000000" />
-    <circle
-        android:cx="54"
-        android:cy="54"
-        android:r="4"
-        android:fillColor="#FFFFFF" />
+        android:pathData="M54,42 A12,12 0 1,1 54,66 A12,12 0 1,1 54,42z" />
+    <!-- Inner circle (filled) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,50 A4,4 0 1,1 54,58 A4,4 0 1,1 54,50z" />
 </vector>
