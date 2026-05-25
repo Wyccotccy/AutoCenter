@@ -53,8 +53,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation 'androidx.preference:preference-ktx:1.2.1'
 
-    // OpenCV for Android — full feature set including ORB, FLANN, LK optical flow
-    implementation 'com.quickbirdstudios:opencv:4.8.0'
+    // OpenCV for Android — full feature set including ORB, FLANN
+    // Maven Central: https://repo.maven.apache.org/maven2/com/quickbirdstudios/opencv/
+    implementation 'com.quickbirdstudios:opencv:4.5.3.0'
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
