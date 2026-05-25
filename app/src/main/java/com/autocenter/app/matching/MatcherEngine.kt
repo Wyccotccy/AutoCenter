@@ -61,8 +61,15 @@ class MatcherEngine(private val settings: AppSettings) {
                 }
                 else -> { // ORB (default)
                     val detector = org.opencv.features2d.ORB.create(
-                        maxFeatures = 500,
-                        scoreType = org.opencv.features2d.ORB.HARRIS_SCORE
+                        500,
+                        1.2f,
+                        8,
+                        31,
+                        0,
+                        2,
+                        org.opencv.features2d.ORB.HARRIS_SCORE,
+                        31,
+                        20
                     )
                     detector.detectAndCompute(gray, Mat(), frameKp, frameDesc)
                 }

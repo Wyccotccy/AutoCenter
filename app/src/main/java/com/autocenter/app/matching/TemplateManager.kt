@@ -136,8 +136,15 @@ class TemplateManager(private val context: Context) {
                 }
                 else -> { // ORB (default)
                     val detector = ORB.create(
-                        maxFeatures = 500,
-                        scoreType = ORB.HARRIS_SCORE
+                        500,
+                        1.2f,
+                        8,
+                        31,
+                        0,
+                        2,
+                        ORB.HARRIS_SCORE,
+                        31,
+                        20
                     )
                     detector.detectAndCompute(gray, Mat(), kp, desc)
                 }
