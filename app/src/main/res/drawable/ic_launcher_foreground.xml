@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Crosshair icon for AutoCenter app -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,24v8" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,76v8" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,54h8" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M76,54h8" />
+    <circle
+        android:cx="54"
+        android:cy="54"
+        android:r="12"
+        android:strokeWidth="3"
+        android:strokeColor="#FFFFFF"
+        android:fillColor="#00000000" />
+    <circle
+        android:cx="54"
+        android:cy="54"
+        android:r="4"
+        android:fillColor="#FFFFFF" />
+</vector>

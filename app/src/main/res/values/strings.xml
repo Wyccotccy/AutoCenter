@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">自动居中</string>
+    <string name="accessibility_service_desc">用于执行滑动居中操作的辅助功能服务</string>
+
+    <!-- 主界面 -->
+    <string name="btn_open_accessibility">开启无障碍服务</string>
+    <string name="btn_upload_template">上传目标图案</string>
+    <string name="btn_calibrate">滑动校准</string>
+    <string name="btn_test_match">测试匹配</string>
+    <string name="btn_test_stop">停止测试</string>
+    <string name="btn_config">配置</string>
+    <string name="switch_auto_center">启用自动居中</string>
+    <string name="switch_show_reticle">显示瞄准框</string>
+    <string name="status_idle">未检测</string>
+    <string name="status_detecting">检测中…</string>
+    <string name="status_match_found">匹配成功</string>
+    <string name="status_centering">居中滑动中…</string>
+    <string name="status_centered">居中完成</string>
+    <string name="status_no_service">未开启无障碍服务</string>
+    <string name="status_no_capture">未授权屏幕捕获</string>
+
+    <!-- 配置界面 -->
+    <string name="config_title">配置中心</string>
+    <string name="config_templates">目标模板</string>
+    <string name="config_add_template">添加新模板</string>
+    <string name="config_match_params">匹配参数</string>
+    <string name="config_sensitivity">匹配灵敏度</string>
+    <string name="config_downsample">降采样比例</string>
+    <string name="config_fps">帧率 (fps)</string>
+    <string name="config_max_active">最大活跃模板数</string>
+    <string name="config_algorithm">匹配算法</string>
+    <string name="config_calibration">滑动校准</string>
+    <string name="config_calib_x">X 轴校正比</string>
+    <string name="config_calib_y">Y 轴校正比</string>
+    <string name="config_reset">重置</string>
+    <string name="config_recalibrate">重新校准</string>
+    <string name="config_no_template">暂无模板</string>
+
+    <!-- 菜单 -->
+    <string name="menu_edit_name">编辑名称</string>
+    <string name="menu_delete">删除</string>
+    <string name="menu_set_default">设为默认</string>
+    <string name="menu_disable">禁用</string>
+    <string name="menu_enable">启用</string>
+
+    <!-- 对话框 -->
+    <string name="dialog_edit_name_title">编辑模板名称</string>
+    <string name="dialog_edit_name_hint">输入名称</string>
+    <string name="dialog_confirm_delete">确定删除此模板？</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_confirm">确定</string>
+    <string name="dialog_calibrate_title">滑动校准</string>
+    <string name="dialog_calibrate_msg">请将目标置于屏幕任意位置，App 将自动在不同位置进行 5 次测试滑动以校准灵敏度。校准期间不要触碰屏幕。</string>
+
+    <!-- 通知 -->
+    <string name="notification_channel_name">屏幕捕获</string>
+    <string name="notification_channel_desc">屏幕捕获服务运行中</string>
+    <string name="notification_text">正在捕获屏幕进行目标匹配</string>
+
+    <!-- 模板限制 -->
+    <string name="template_limit_warning">已达最大模板数量上限（15个）</string>
+</resources>

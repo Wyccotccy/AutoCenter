@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FF1976D2</color>
+    <color name="primary_variant">#FF1565C0</color>
+    <color name="on_primary">#FFFFFFFF</color>
+    <color name="secondary">#FF03DAC6</color>
+    <color name="secondary_variant">#FF018786</color>
+    <color name="on_secondary">#FF000000</color>
+    <color name="background">#FF121212</color>
+    <color name="surface">#FF1E1E1E</color>
+    <color name="on_surface">#FFFFFFFF</color>
+    <color name="error">#FFCF6679</color>
+    <color name="match_box">#80FF0000</color>
+    <color name="match_box_stroke">#FFFF0000</color>
+    <color name="match_box_test">#8000FF00</color>
+    <color name="match_box_test_stroke">#FF00FF00</color>
+    <color name="button_bg">#FF1976D2</color>
+    <color name="button_text">#FFFFFFFF</color>
+    <color name="status_text">#FFB0BEC5</color>
+</resources>

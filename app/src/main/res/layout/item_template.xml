@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/surface"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <!-- 启用/禁用勾选框 -->
+        <CheckBox
+            android:id="@+id/chkEnabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- 模板缩略图 -->
+        <ImageView
+            android:id="@+id/ivThumbnail"
+            android:layout_width="@dimen/template_thumb_size"
+            android:layout_height="@dimen/template_thumb_size"
+            android:scaleType="centerCrop"
+            android:layout_marginHorizontal="8dp"
+            android:background="#33FFFFFF"
+            android:contentDescription="模板预览" />
+
+        <!-- 模板信息 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="模板名称"
+                android:textSize="15sp"
+                android:textColor="@color/on_surface" />
+
+            <TextView
+                android:id="@+id/tvInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="默认"
+                android:textSize="12sp"
+                android:textColor="@color/status_text"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <!-- 编辑按钮 -->
+        <ImageButton
+            android:id="@+id/btnMore"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_more_vert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="更多操作"
+            android:tint="@color/on_surface" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

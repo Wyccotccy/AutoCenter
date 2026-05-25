@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="匹配预览"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/ivPreview"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="fitCenter"
+            android:background="#1A000000" />
+
+        <TextView
+            android:id="@+id/tvPreviewStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预览中…"
+            android:textSize="14sp"
+            android:textColor="#FFB0BEC5"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPreviewClose"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="关闭"
+            android:layout_marginTop="16dp"
+            app:cornerRadius="8dp" />
+    </LinearLayout>
+
+</FrameLayout>
