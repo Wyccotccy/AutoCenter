@@ -94,6 +94,18 @@ class ScreenCaptureService : Service() {
     override fun onCreate() {
         super.onCreate()
         ScreenCaptureServiceConnection.serviceInstance = this
+
+        // 检查 OpenCV 是否已初始化
+        if (!AutoCenterApp.isOpenCVInitialized) {
+            Log.e(TAG, "OpenCV not initialized - screen capture will not work")
+            // 尝试手动初始化
+            try {
+                org.opencv.android.OpenCVLoader.initDebug()
+            } catch (e: Exception) {
+                Log.e(TAG, "Manual OpenCV init failed: ${e.message}")
+            }
+        }
+
         settings = AppSettings(this)
         matcherEngine = MatcherEngine(settings)
         templateManager = TemplateManager(this)

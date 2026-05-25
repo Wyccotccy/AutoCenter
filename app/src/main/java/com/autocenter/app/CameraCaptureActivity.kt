@@ -42,6 +42,14 @@ class CameraCaptureActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 检查 OpenCV
+        if (!AutoCenterApp.isOpenCVInitialized) {
+            try {
+                org.opencv.android.OpenCVLoader.initDebug()
+            } catch (_: Exception) {}
+        }
+
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
